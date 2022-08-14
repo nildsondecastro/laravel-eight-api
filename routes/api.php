@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LaravelapiTestesController;
+use App\Http\Controllers\PostsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,6 +27,7 @@ Route::post('token', [AuthController::class, 'auth']);
 Route::middleware('auth:api')->group(function(){
     Route::resources([
         'user' => UserController::class,
+        'posts' => PostsController::class
     ]);
    
 });
