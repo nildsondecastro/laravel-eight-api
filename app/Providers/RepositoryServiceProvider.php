@@ -26,9 +26,10 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(\App\Repositories\ApisConfigRepository::class, \App\Repositories\ApisConfigRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\ApisConfigsRepository::class, \App\Repositories\ApisConfigsRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\TesteEmersonRepository::class, \App\Repositories\TesteEmersonRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\EmersonTesteRepository::class, \App\Repositories\EmersonTesteRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\EmersonTestesRepository::class, \App\Repositories\EmersonTestesRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\TesteLaravelapiRepository::class, \App\Repositories\TesteLaravelapiRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\LaravelapiTesteRepository::class, \App\Repositories\LaravelapiTesteRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\LaravelapiTestesRepository::class, \App\Repositories\LaravelapiTestesRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\PostsRepository::class, \App\Repositories\PostsRepositoryEloquent::class);
         //:end-bindings:
     }
 }

@@ -76,7 +76,7 @@ On routes/api.php file, create inside the middleware function your api routes.
     Route::middleware('auth:api')->group(function(){
         Route::resources([
             'user' => UserController::class,
-            'testes' => EmersonTestesController::class,
+            'testes' => LaravelapiTestesController::class,
         ]);
     });
 You can see more about that here:
