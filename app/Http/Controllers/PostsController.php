@@ -12,40 +12,17 @@ use App\Http\Requests\PostsUpdateRequest;
 use App\Repositories\PostsRepository;
 use App\Validators\PostsValidator;
 
-/**
- * Class PostsController.
- *
- * @package namespace App\Http\Controllers;
- */
 class PostsController extends Controller
 {
-    /**
-     * @var PostsRepository
-     */
     protected $repository;
-
-    /**
-     * @var PostsValidator
-     */
     protected $validator;
 
-    /**
-     * PostsController constructor.
-     *
-     * @param PostsRepository $repository
-     * @param PostsValidator $validator
-     */
     public function __construct(PostsRepository $repository, PostsValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
@@ -58,18 +35,9 @@ class PostsController extends Controller
             ]);
         }
 
-        return view('posts.index', compact('posts'));
+        return response()->json("Accept Application Json Not identified");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  PostsCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function store(PostsCreateRequest $request)
     {
         try {
@@ -101,13 +69,6 @@ class PostsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $post = $this->repository->find($id);
@@ -119,33 +80,16 @@ class PostsController extends Controller
             ]);
         }
 
-        return view('posts.show', compact('post'));
+        return response()->json("Accept Application Json Not identified");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $post = $this->repository->find($id);
 
-        return view('posts.edit', compact('post'));
+        return response()->json("Accept Application Json Not identified");
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  PostsUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function update(PostsUpdateRequest $request, $id)
     {
         try {
@@ -179,14 +123,6 @@ class PostsController extends Controller
         }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $deleted = $this->repository->delete($id);
